@@ -10,7 +10,9 @@ import remarkGfm from "remark-gfm";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 function TextArea() {
+  // Functional component that maintains the state of the react markdown previewer and sets the current state to markdownInput placeholder
   const [markdown, setMarkdown] = useState(markdownInput);
+  //A function that clears the text in the markdown
   const resetMarkdown = () => {
     setMarkdown("");
   };
@@ -37,12 +39,14 @@ function TextArea() {
                   backgroundColor: "transparent",
                 }}
                 id="editor"
+                //Lets you change the state of the markdown
                 onChange={(e) => setMarkdown(e.target.value)}
                 value={markdown}
               ></Form.Control>
               <Button
                 variant="outline-dark"
                 itemID="btn"
+                //Gives the button functionality, so when pressed it erases the text
                 onClick={resetMarkdown}
               >
                 Clear Text
@@ -70,10 +74,13 @@ function TextArea() {
                 children={markdown}
                 remarkPlugins={[remarkGfm]}
                 components={{
+                  //Passes the functional component as a child
                   MarkComponent,
+                  //Gives em elements a red text color
                   em: ({ node, ...props }) => (
                     <i style={{ color: "red" }} {...props} />
                   ),
+                  //Passes the syntaxhighler as a child of the markdown
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || "");
                     return !inline && match ? (
@@ -100,6 +107,7 @@ function TextArea() {
   );
 }
 
+//A functional component that takes value and language as props so the syntax knowns what to highlight and use the docco for style
 const MarkComponent = ({ value, language }) => {
   return (
     <SyntaxHighlighter language={language ?? null} style={docco}>
@@ -108,6 +116,7 @@ const MarkComponent = ({ value, language }) => {
   );
 };
 
+//Placeholder for the markdown text
 const markdownInput = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
