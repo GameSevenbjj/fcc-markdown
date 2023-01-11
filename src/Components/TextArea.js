@@ -36,7 +36,7 @@ function TextArea() {
                   height: "400px",
                   textAlign: "left",
                   boxSizing: "border-box",
-                  backgroundColor: "transparent",
+                  backgroundColor: " #f8f9faff",
                 }}
                 id="editor"
                 //Lets you change the state of the markdown
@@ -44,6 +44,9 @@ function TextArea() {
                 value={markdown}
               ></Form.Control>
               <Button
+                style={{
+                  backgroundColor: "#f8f9faff",
+                }}
                 variant="outline-dark"
                 itemID="btn"
                 //Gives the button functionality, so when pressed it erases the text
@@ -53,7 +56,7 @@ function TextArea() {
               </Button>{" "}
             </div>
           </Col>
-          <Col>
+          <Col id="move">
             <div className="text-center">
               <h1>Previewer</h1>
             </div>
@@ -67,6 +70,7 @@ function TextArea() {
                 margin: "20px auto",
                 textAlign: "left",
                 boxSizing: "border-box",
+                backgroundColor: " #f8f9faff",
               }}
             >
               <ReactMarkdown

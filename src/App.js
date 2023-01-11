@@ -7,7 +7,7 @@ import TextArea from "./Components/TextArea";
 function App() {
   return (
     <div className="bg-color">
-      <div>
+      <div className="nav-color">
         <NavBar />
       </div>
       <TextArea />

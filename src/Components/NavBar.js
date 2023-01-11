@@ -7,7 +7,7 @@ function NavBar() {
       <Navbar>
         <Container
           style={{
-            backgroundColor: "transparent",
+            backgroundColor: "#ced4daff",
             alignItems: "center",
             justifyContent: "center",
           }}
